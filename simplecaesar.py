@@ -50,7 +50,7 @@ def initialize_decoder():
   # of simple caesar displacement
   messages = ''
   for lines in range(0, len(output)): # make a string from output, 1 line per list item
-    messages += (str(lines + 1) + ": " + output[lines] + "\n")
+    messages += ("Key - " + str(lines + 1) + ": " + output[lines] + "\n")
       
   print messages
   
@@ -87,7 +87,7 @@ def my_decoder(msg): # makes a list with all possible combinations of messages
   return message_holder
   
 def my_create_temp_alphabet(key_value): # creates an alphabet 
-  temp_alphabet = alphabet[(26-key_value):26] + alphabet[0:(26-key_value)]
+  temp_alphabet = alphabet[(key_value):26] + alphabet[0:(key_value)]
   return temp_alphabet
   
 def my_encoder(msg, key_value): # converts one message to another based on a key value

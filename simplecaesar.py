@@ -10,11 +10,11 @@ CURRENT VERSION: 1.0
 CURRENT VERSION DATE: 08/11/2015
 
 NOTE: If you do not know what a Simple Caesar Cipher is, then please consult your
-favorite search engine and/or read the README.txt file. Knowing about caesar ciphers
+favorite search engine and/or read the README.md file. Knowing about caesar ciphers
 will make reading this code much easier.
 
 TODO:
-1. add functionality to initialize_decoder() - make this function return the cipher key(s)
+1. refactor code to eliminate repetition
 2. add functionality to initialize_decoder() - make this function allow for acceptance of
 a cipher key if it is already known.
 3. design new algorithm for initialize_decoder() - the current algorithm employs a brute force

@@ -46,12 +46,22 @@ def initialize_decoder():
   read_file = my_parser(read_file) # removes all characters except for
   #letters of the alphabet and spaces
   
-  output = my_decoder(read_file) # output is a list of all of the possible combinations
+  output, first_char_pos = my_decoder(read_file) 
+  # output is a list of all of the possible combinations
   # of simple caesar displacement
   messages = ''
+  print '''
+  Find the difference between POS(%s) and the number of the line next
+  to a comprehensible message.
+    -If this value is positive, then that is the value of the cipher.
+    -If this value is negative, then add the negative value to 26
+    and this will produce the value of the key.
+  ''' % str(first_char_pos)
   for lines in range(0, len(output)): # make a string from output, 1 line per list item
-    messages += ("Key - " + str(lines + 1) + ": " + output[lines] + "\n")
-      
+    messages += ("POS - " + str(lines + 1) + " = + or -?: " + output[lines] + "\n")
+    # h[7] -> m[12] key: 5
+    #
+    
   print messages
   
   write_to = my_write_selector() # prompts the user on which file to store the messages
@@ -80,11 +90,24 @@ def initialize_encoder():
 """HELPER FUNCTIONS - LISTED ALPHABETICALLY"""
 def my_decoder(msg): # makes a list with all possible combinations of messages
   message_holder = []
+  first_char = ''
+  j = 0
+  space = True
   
-  for i in range(1, len(alphabet)):
-    message_holder.append(my_encoder(msg, i))
+  while space == True:
+    if msg[j] == " ":
+      j += 1
+    else:
+      first_char = msg[j]
+      space = False
+      
+  first_char_pos = alphabet.index(first_char)    
+  shift = 26 - first_char_pos
+
+  for i in range(1, len(alphabet) + 1):
+    message_holder.append(my_encoder(msg, (i + shift) % 26))
   
-  return message_holder
+  return message_holder, first_char_pos
   
 def my_create_temp_alphabet(key_value): # creates an alphabet 
   temp_alphabet = alphabet[(key_value):26] + alphabet[0:(key_value)]

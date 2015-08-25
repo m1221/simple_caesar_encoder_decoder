@@ -6,8 +6,8 @@ DATE OF V1.0 RELEASE: 08/11/2015
 AUTHOR OS: Windows 8.1
 PYTHON VERSION: 2.7.10
 GITHUB ACCOUNT: m1221
-CURRENT VERSION: 1.0
-CURRENT VERSION DATE: 08/11/2015
+CURRENT VERSION: 1.1
+CURRENT VERSION DATE: 08/24/2015
 
 NOTE: If you do not know what a Simple Caesar Cipher is, then please consult your
 favorite search engine and/or read the README.md file. Knowing about caesar ciphers
